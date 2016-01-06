@@ -1,6 +1,31 @@
 Android-CleanArchitecture [![Build Status](https://travis-ci.org/android10/Android-CleanArchitecture.svg?branch=master)](https://travis-ci.org/android10/Android-CleanArchitecture)
 =========================
 
+著作权归作者所有。
+商业转载请联系作者获得授权，非商业转载请注明出处。
+作者：豆沙包
+链接：http://www.zhihu.com/question/21406685/answer/61122814
+来源：知乎
+
+这个是我们团队一直推崇而且现在正在使用的架构
+android10/Android-CleanArchitecture · GitHub
+
+说说用下来的优缺点，如有纰漏，还请指正。
+
+无论从架构还是代码上看，分层都是三层：视图层(Presentation Layer)、控制层(Domain Layer)、数据流层(Data Layer)。
+层级之间通过添加接口层作为分隔实现解耦。
+
+简单来说，优点有以下
+1.层次分明，各层级之间都不管对方如何实现，只关注结果；
+2.在视图层(Presentation Layer)使用MVP架构，使原本臃肿的Activity(或Fragment)变得简单，其处理方法都交给了Presenter。
+3.易于做测试，只要基于每个模块单独做好单元测试就能确保整体的稳定性。
+4.易于快速迭代，基于代码的低耦合，只需在业务逻辑上增加接口，然后在相应的层级分别实现即可，丝毫不影响其他功能。
+....等等
+
+目前发现的缺点：
+1.由于视图层(Presentation Layer)使用MVP模式，每个有独立逻辑的Activity(Fragment)都拥有独立的Presenter，当View多起来时候Presenter维护起来就显得略麻烦
+2.上手难度比较大，学习曲线比较陡峭
+
 This is a sample app that is part of a blog post I have written about how to architect android application using the Uncle Bob's clean architecture approach. 
 
 [Architecting Android…The clean way?](http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/)
